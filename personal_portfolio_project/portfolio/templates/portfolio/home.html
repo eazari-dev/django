@@ -6,6 +6,10 @@
   </head>
   <body>
       <h1>welcome to my portfolio!</h1>
+      <a href="{% url 'blog:all_blogs' %}"><button type="button" name="button">Blog!</button></a>
+      {% load static %}
+      <a href="{% static 'portfolio/resume.pdf' %}">Resume</a>
+      <img src="{% static 'portfolio/image.png' %}" alt="">
       {% for p in projects %}
       <li>
           {% if p.url %}

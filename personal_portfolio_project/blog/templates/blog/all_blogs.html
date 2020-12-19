@@ -5,6 +5,13 @@
     <title></title>
   </head>
   <body>
-    <h1>hello</h1>
+    <h1>welcome!</h1>
+    <h2>Erfan written {{posts.count}} blog{{posts.count|pluralize}}</h2>
+    {% for post in posts %}
+    <a href="{% url 'blog:detail' post.id %}">{{post.title}}</a><br>
+    {{post.date}}<br>
+    //use safe to have html, or use striptags to ignore them!
+    {{post.description|safe|truncatechars:100 }}<br>
+    {% endfor %}
   </body>
 </html>
