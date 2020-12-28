@@ -18,7 +18,7 @@ def signupuser(request):
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('home')
+                return redirect('currenttodos')
 
             except IntegrityError:
                     return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'Username has been taken already!'})
@@ -27,7 +27,7 @@ def signupuser(request):
             return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'Password did not math!'})
 
 def currenttodos(request):
-    return render(request, 'todo/base.html')
+    return render(request, 'todo/currenttodos.html')
 
 def loginuser(request):
     if request.method == 'GET':
@@ -38,7 +38,7 @@ def loginuser(request):
             return render(request, 'todo/loginuser.html', {'form': AuthenticationForm(), 'error': 'Username and password did\'nt matched!'})
         else:
             login(request, user)
-            return redirect('home')
+            return redirect('currenttodos')
 
 def logoutuser(request):
     if request.method == 'POST':
