@@ -3,7 +3,7 @@
 {% block content %}
 
 
-  <h2>List of todos: </h2>
+  <h2>List of completed todos: </h2>
   <ul>
     {% for todo in todos %}
     <li>
@@ -12,6 +12,7 @@
           {{ todo.title }}
         {% if todo.important %}</b>{% endif %}
         - {{ todo.memo }}
+        - {{ todo.completed }}
         </a>
     </li>
     {% endfor %}
