@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'todo/base.html')
+    return render(request, 'todo/home.html')
 
 def signupuser(request):
     if request.method == 'GET':
@@ -61,7 +61,7 @@ def loginuser(request):
 
 @login_required
 def logoutuser(request):
-    if request.method == 'POST':
+    if request.user != None:
         logout(request)
     return redirect('home')
 

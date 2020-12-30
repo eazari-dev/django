@@ -1,0 +1,10 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+  <main class="px-3">
+    <h1>Remember your todos easily!</h1>
+    <p class="lead">If you forget about your todos, among others,<br>You can use this website to easily remember everything.<br>Feel free to check this out!</p>
+    <p class="lead">
+      <a href="{% url 'signupuser' %}" class="btn btn-lg btn-secondary fw-bold border-white">Start!</a>
+    </p>
+  </main>
+{% endblock %}
